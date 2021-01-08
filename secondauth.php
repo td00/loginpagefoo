@@ -1,7 +1,29 @@
 <?php 
 session_start();
 $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
- 
+
+function random_string() {
+    if(function_exists('random_bytes')) {
+    $bytes = random_bytes(16);
+    $str = bin2hex($bytes); 
+    } else if(function_exists('openssl_random_pseudo_bytes')) {
+    $bytes = openssl_random_pseudo_bytes(16);
+    $str = bin2hex($bytes); 
+    } else if(function_exists('mcrypt_create_iv')) {
+    $bytes = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
+    $str = bin2hex($bytes); 
+    } else {
+   //this should be a unique string. if we use this in prod we should change this.
+    $str = md5(uniqid('thisisnotreallyrandombutthisstringheresomakethislongandmaybewith12345numberskthxbye', true));
+    } 
+    return $str;
+   }
+
+   $passwordcode = random_string();
+   $statement = $pdo->prepare("UPDATE users SET passwordcode = :passwordcode, passwordcode_time = NOW() WHERE id = :userid");
+   $result = $statement->execute(array('passwordcode' => sha1($passwordcode), 'userid' => $user['id']));
+   
+
 if(isset($_GET['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -16,7 +38,7 @@ if(isset($_GET['login'])) {
         $_SESSION['username'] = $user['username'];
         $_SESSION['givenName'] = $user['givenName'];
         $_SESSION['lastName'] = $user['lastName'];
-        die('successfull. go to: <a href="passwordchange.php">password change page</a><meta http-equiv="refresh" content="0; URL=passwordchange.php">');
+        die('successfull. please wait. youll be forwarded! <meta http-equiv="refresh" content="0; URL=passwordchange.php">');
     } else {
         $errorMessage = "somethings wrong (maybe wrong password or invalid session)<br>";
     }
