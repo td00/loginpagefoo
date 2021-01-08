@@ -14,7 +14,13 @@ $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password')
  
 <?php
 $showFormular = true;
- 
+
+//regexes for validation:
+$REuppercase = preg_match('@[A-Z]@', $password);
+$RElowercase = preg_match('@[a-z]@', $password);
+$REnumber    = preg_match('@[0-9]@', $password);
+$REspecialChars = preg_match('@[^\w]@', $password);
+
 if(isset($_GET['register'])) {
     $error = false;
     $email = $_POST['email'];
@@ -34,6 +40,11 @@ if(isset($_GET['register'])) {
     }
     if($password != $password_confirm) {
         echo 'passwords doesnt match<br>';
+        $error = true;
+    }
+    if(!$REuppercase || !$RElowercase || !$REnumber || !$REspecialChars || strlen($password) < 8) {
+        echo 'Password needs to be more complex.<br />';
+        echo 'Please implement at least 8 chars, upper & downer caser, one number & one special char.<br />';
         $error = true;
     }
     
