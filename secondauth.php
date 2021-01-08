@@ -37,11 +37,13 @@ if(isset($errorMessage)) {
     echo $errorMessage;
 }
 ?>
+
  <script src="ressources/js/bootstrap.min.js"></script>
+<h3 class="display-5">You want to change your password? Please prove that you know your old password first!</h5>
 <form action="?login=1" method="post">
 <div class="form-group">
 <label for="username">Username</label>
-<input type="text" class="form-control" size="40" id="username" placeholder="Username" name="username" value="$username"><br><br>
+<input type="text" class="form-control" size="40" id="username" placeholder="Username" name="username" ><br><br>
 </div>
  <div class="form-group">
 <label for="password">Password</label>
