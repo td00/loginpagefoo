@@ -17,7 +17,7 @@ if(isset($_GET['login'])) {
         $_SESSION['username'] = $user['username'];
         $_SESSION['givenName'] = $user['givenName'];
         $_SESSION['lastName'] = $user['lastName'];
-        die('<div class="alert alert-primary" role="alert">successfull. go to: <a href="secure.php">secure page</a></div><meta http-equiv="refresh" content="0; URL=secure.php">');
+        die('<div class="alert alert-success" role="alert">successfull. go to: <a href="secure.php">secure page</a></div><meta http-equiv="refresh" content="0; URL=secure.php">');
     } else {
         $errorMessage = '<div class="alert alert-danger" role="alert">somethings wrong (maybe wrong password or wrong user)</div><br>';
     }
