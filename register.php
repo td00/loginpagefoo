@@ -107,7 +107,7 @@ if($showFormular) {
 
 <div class="form-group"> 
 <label for="password_confirm">Password (again):</label>
-<input type="password" class="form-control" id="password_confirm" size="40" name="password_confirm" placceholder="Please confirm password">
+<input type="password" class="form-control" id="password_confirm" size="40" name="password_confirm" placeholder="Please confirm password">
 </div>
  
 <button type="submit" class="btn btn-primary">Register</button>
