@@ -15,6 +15,8 @@ $showFormular = true;
 if(isset($_GET['register'])) {
     $error = false;
     $email = $_POST['email'];
+    $givenName = $_POST['vorname'];
+    $lastName = $_POST['nachname'];
     $passwort = $_POST['passwort'];
     $passwort_confirm = $_POST['passwort_confirm'];
   
@@ -46,7 +48,7 @@ if(isset($_GET['register'])) {
     if(!$error) {    
         $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
         
-        $statement = $pdo->prepare("INSERT INTO users (email, passwort) VALUES (:email, :passwort)");
+        $statement = $pdo->prepare("INSERT INTO users (email, vorname, nachname, passwort) VALUES (:email, :vorname, :nachname, :passwort)");
         $result = $statement->execute(array('email' => $email, 'passwort' => $passwort_hash));
         
         if($result) {        
@@ -64,7 +66,10 @@ if($showFormular) {
 <form action="?register=1" method="post">
 E-Mail:<br>
 <input type="email" size="40" maxlength="250" name="email"><br><br>
- 
+Given Name:<br>
+<input type="text" size="40" name="givenName"><br><br>
+Family Name:<br>
+<input type="text" size="40" name="lastName"><br><br>
 Password:<br>
 <input type="password" size="40"  name="passwort"><br>
  

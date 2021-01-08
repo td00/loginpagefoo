@@ -6,19 +6,19 @@ if(!isset($_SESSION['userid'])) {
 }
  
 $userid = $_SESSION['userid'];
+$useremail = $_SESSION['email'];
+$usergn = $_SESSION['givenName'];
+$userln = $_SESSION['lastName'];
  
-echo "Hi ".$userid;
+echo "Hi ".$usergn;
+echo "<br/>";
+echo "Your User-ID is: ".$userid;
+echo "<br/>";
+echo "Your full name is: ".$usergn." ".$userln;
+echo "<br/>";
+echo "And your email is: ".$useremail;
 echo "<br/>";
 echo "<br/>";
-echo "<br/>";
-$statement = $pdo->prepare("SELECT * FROM users WHERE id = $userid");
-        $result = $statement->execute(array('email' => $email));
-        $user = $statement->fetch();
-
-echo $email;
-echo "<br/>";
-echo "<br/>";
-echo "<br/>";
-
-echo "This is secure now!";
+echo "This is the end now!";
+echo "goodbye";
 ?>
