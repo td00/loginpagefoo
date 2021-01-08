@@ -59,7 +59,7 @@ if(isset($_GET['send'])) {
  $result = $statement->execute(array('passwordhash' => $passwordhash, 'userid'=> $userid ));
  
  if($result) {
- die('Changed password. Please goto <a href="login.php">login</a> now.');
+ die('Changed password. Going to <a href="login.php">login</a> now.<meta http-equiv="refresh" content="1; URL=login.php">');
  }
  }
 }
