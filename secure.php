@@ -6,11 +6,12 @@ if(!isset($_SESSION['userid'])) {
 }
  
 $userid = $_SESSION['userid'];
+$username = $_SESSION['username'];
 $useremail = $_SESSION['email'];
 $usergn = $_SESSION['givenName'];
 $userln = $_SESSION['lastName'];
  
-echo "Hi ".$usergn;
+echo "Hi ".$username;
 echo "<br/>";
 echo "Your User-ID is: ".$userid;
 echo "<br/>";
