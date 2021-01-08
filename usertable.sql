@@ -7,5 +7,7 @@ CREATE TABLE `users` (
   `lastName` VARCHAR(255) NOT NULL DEFAULT '' ,
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `passwordcode` VARCHAR(255) NULL ,
+  `passwordcode_time` TIMESTAMP NULL ,
   PRIMARY KEY (`id`), UNIQUE (`email`), UNIQUE (`username`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
