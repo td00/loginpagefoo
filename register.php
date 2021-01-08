@@ -6,7 +6,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password')
 <html> 
 <head>
   <title>Register</title>    
-  <link rel="stylesheet" href="ressources/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="ressources/css/bootstrap.min.css" crossorigin="anonymous">
    
 
 </head> 
@@ -77,7 +77,7 @@ if(isset($_GET['register'])) {
  
 if($showFormular) {
 ?>
- <script src="ressources/js/bootstrap.min.js"></script>
+<script src="ressources/js/bootstrap.min.js"></script>
 <form action="?register=1" method="post">
 E-Mail:<br>
 <input type="email" size="40" maxlength="250" name="email"><br><br>
