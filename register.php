@@ -17,18 +17,18 @@ if(isset($_GET['register'])) {
     $email = $_POST['email'];
     $givenName = $_POST['givenName'];
     $lastName = $_POST['lastName'];
-    $passwort = $_POST['passwort'];
-    $passwort_confirm = $_POST['passwort_confirm'];
+    $password = $_POST['password'];
+    $password_confirm = $_POST['password_confirm'];
   
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo 'Please use valid email<br>';
         $error = true;
     }     
-    if(strlen($passwort) == 0) {
+    if(strlen($password) == 0) {
         echo 'Please enter password<br>';
         $error = true;
     }
-    if($passwort != $passwort_confirm) {
+    if($password != $password_confirm) {
         echo 'passwords doesnt match<br>';
         $error = true;
     }
@@ -46,10 +46,10 @@ if(isset($_GET['register'])) {
     }
 
     if(!$error) {    
-        $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
         
-        $statement = $pdo->prepare("INSERT INTO users (email, vorname, nachname, passwort) VALUES (:email, :givenName, :lastName, :passwort)");
-        $result = $statement->execute(array('email' => $email, 'givenName' => $givenName, 'lastName' => $lastName, 'passwort' => $passwort_hash));
+        $statement = $pdo->prepare("INSERT INTO users (email, givenName, lastName, password) VALUES (:email, :givenName, :lastName, :password)");
+        $result = $statement->execute(array('email' => $email, 'givenName' => $givenName, 'lastName' => $lastName, 'password' => $password_hash));
         
         if($result) {        
             echo 'successfull registered. <a href="login.php">Login</a>';
@@ -71,10 +71,10 @@ Given Name:<br>
 Family Name:<br>
 <input type="text" size="40" name="lastName"><br><br>
 Password:<br>
-<input type="password" size="40"  name="passwort"><br>
+<input type="password" size="40"  name="password"><br>
  
 Password (aganin):<br>
-<input type="password" size="40" name="passwort_confirm"><br><br>
+<input type="password" size="40" name="password_confirm"><br><br>
  
 <input type="submit" value="GO">
 </form>
