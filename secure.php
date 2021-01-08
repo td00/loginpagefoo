@@ -11,7 +11,8 @@ $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password')
 if(!isset($_SESSION['userid'])) {
     die('Please <a href="login.php">login</a>');
 }
- 
+
+ /*
 $userid = $_SESSION['userid'];
 $username = $_SESSION['username'];
 $useremail = $_SESSION['email'];
@@ -32,7 +33,10 @@ echo "<br/>";
 echo "This is the end now!";
 echo "<br />";
 echo "goodbye";
+*/
 ?>
-<a href="logout.php"><button>LOGOUT</button></a>
+<a href="profile.php"><button class="btn btn-primary">Profile</button></a>
+<br>
+<a href="logout.php"><button class="btn btn-danger">LOGOUT</button></a>
 </body>
 </html>
