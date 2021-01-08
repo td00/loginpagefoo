@@ -13,6 +13,7 @@ if(isset($_GET['login'])) {
     if ($user !== false && password_verify($password, $user['password'])) {
         $_SESSION['userid'] = $user['id'];
         $_SESSION['email'] = $user['email'];
+        $_SESSION['username'] = $user['username'];
         $_SESSION['givenName'] = $user['givenName'];
         $_SESSION['lastName'] = $user['lastName'];
         die('successfull. go to: <a href="secure.php">secure page</a>');
