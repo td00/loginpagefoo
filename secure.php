@@ -26,10 +26,13 @@ echo "Your full name is: ".$usergn." ".$userln;
 echo "<br/>";
 echo "And your email is: ".$useremail;
 echo "<br/>";
+echo "You can logout <a href="logout.php">here</a>";
+echo "<br />";
 echo "<br/>";
 echo "This is the end now!";
 echo "<br />";
 echo "goodbye";
 ?>
+<a href="logout.php"><button>LOGOUT</button></a>
 </body>
 </html>
