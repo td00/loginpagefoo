@@ -15,8 +15,8 @@ $showFormular = true;
 if(isset($_GET['register'])) {
     $error = false;
     $email = $_POST['email'];
-    $givenName = $_POST['vorname'];
-    $lastName = $_POST['nachname'];
+    $givenName = $_POST['givenName'];
+    $lastName = $_POST['lastName'];
     $passwort = $_POST['passwort'];
     $passwort_confirm = $_POST['passwort_confirm'];
   
@@ -48,8 +48,8 @@ if(isset($_GET['register'])) {
     if(!$error) {    
         $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
         
-        $statement = $pdo->prepare("INSERT INTO users (email, vorname, nachname, passwort) VALUES (:email, :vorname, :nachname, :passwort)");
-        $result = $statement->execute(array('email' => $email, 'passwort' => $passwort_hash));
+        $statement = $pdo->prepare("INSERT INTO users (email, vorname, nachname, passwort) VALUES (:email, :givenName, :lastName, :passwort)");
+        $result = $statement->execute(array('email' => $email, 'givenName' => $givenName, 'lastName' => $lastName, 'passwort' => $passwort_hash));
         
         if($result) {        
             echo 'successfull registered. <a href="login.php">Login</a>';
