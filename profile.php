@@ -58,10 +58,8 @@ echo "</tr>";
 
 <br>
 <br/>
-<b>You can logout <a href="logout.php">here</a></b>
-<br/>
 <br/>
 
-<a href="logout.php"><button>LOGOUT</button></a>
+<a href="logout.php"><button class="btn btn-danger">LOGOUT</button></a>
 </body>
 </html>
