@@ -32,20 +32,20 @@ if(isset($_GET['register'])) {
     $REnumber    = preg_match('@[0-9]@', $password);
     $REspecialChars = preg_match('@[^\w]@', $password);
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo 'Please use valid email<br>';
+        echo '<div class="alert alert-danger" role="alert">Please use valid email</div><br>';
         $error = true;
     }     
     if(strlen($password) == 0) {
-        echo 'Please enter password<br>';
+        echo '<div class="alert alert-danger" role="alert">Please enter password</div><br>';
         $error = true;
     }
     if($password != $password_confirm) {
-        echo 'passwords doesnt match<br>';
+        echo '<div class="alert alert-danger" role="alert">passwords doesnt match</div><br>';
         $error = true;
     }
     if(!$REuppercase || !$RElowercase || !$REnumber || !$REspecialChars || strlen($password) < 8) {
-        echo '<color="red">Password needs to be more complex.</color><br />';
-        echo '<i>Please implement at least 8 chars, upper & downer caser, one number & one special char.</i><br />';
+        echo '<div class="alert alert-warning" role="alert">Password needs to be more complex.<br />';
+        echo '<i>Please implement at least 8 chars, upper & downer caser, one number & one special char.</i></div><br />';
         $error = true;
     }
     
@@ -56,7 +56,7 @@ if(isset($_GET['register'])) {
         $user = $statement->fetch();
         
         if($user !== false) {
-            echo 'already a user here<br>';
+            echo '<div class="alert alert-danger" role="alert">already a user here</div><br>';
             $error = true;
         }    
     }
@@ -79,7 +79,7 @@ if(isset($_GET['register'])) {
         $result = $statement->execute(array('email' => $email, 'username' => $username, 'givenName' => $givenName, 'lastName' => $lastName, 'password' => $password_hash));
         
         if($result) {        
-            echo 'successfull registered. <a href="login.php">Login</a>';
+            echo '<div class="alert alert-success" role="alert">successfull registered. <a href="login.php">Login</a></div><meta http-equiv="refresh" content="1; URL=login.php">';
             $showFormular = false;
         } else {
             echo 'Error. Please try again!<br>';
