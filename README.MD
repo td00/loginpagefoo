@@ -17,17 +17,19 @@ Some poc of a login / register setup with php & mysql
 
 ## Features:
 ### Implemented
-- Login
-- PHP Session ID
-- Password Validation
-- Name & Surname
-- Print all the infos (except password) on the secure.php page
+- [x] Login
+- [x] PHP Session ID
+- [x] Password Validation
+- [x] Name & Surname
+- [x] Menu with different options for logged in users on the /secure.php page
+- [x] Reset password
+- [x] Profile page (/profile.php) 
   
 ### Need implementation:
 - [ ] Change password
 - [ ] Change email
 - [ ] Change Names
-- [ ] Reset password
+
 
 
 ### Thanks for flying penguin stack overflow stealing! <3
