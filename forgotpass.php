@@ -81,9 +81,9 @@ if(isset($error) && !empty($error)) {
 <form action="?send=1" method="post">
 <div class="form-group">
 <label for="email">Email</label>
-0<input type="email" name="email" id="email" class="form-control" value="<?php echo isset($_POST['email']) ? htmlentities($_POST['email']) : ''; ?>"><br>
+<input type="email" name="email" id="email" class="form-control" value="<?php echo isset($_POST['email']) ? htmlentities($_POST['email']) : ''; ?>"><br>
 </div>
-<button type="submit" class="btn btn-primary">
+<button type="submit" class="btn btn-primary">Submit request</button>
 </form>
  
 <?php
