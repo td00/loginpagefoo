@@ -9,7 +9,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['userid'])) {
-    die('Please <a href="login.php">login</a>');
+    die('<div class="alert alert-primary" role="alert">Please <a href="login.php">login</a></div><meta http-equiv="refresh" content="2; URL=login.php">');
 }
  
 $userid = $_SESSION['userid'];
