@@ -79,21 +79,39 @@ if($showFormular) {
 ?>
 <script src="ressources/js/bootstrap.min.js"></script>
 <form action="?register=1" method="post">
-E-Mail:<br>
-<input type="email" size="40" maxlength="250" name="email"><br><br>
-Username:<br>
-<input type="text" size="40" name="username"><br><br>
-Given Name:<br>
-<input type="text" size="40" name="givenName"><br><br>
-Family Name:<br>
-<input type="text" size="40" name="lastName"><br><br>
-Password:<br>
-<input type="password" size="40"  name="password"><br><br>
+
+<div class="form-group">
+<label for="email">Email address</label>
+<input type="email" class="form-control" size="40" id="email" placeholder="invalid@example.com" name="email">
+</div>
+
+<div class="form-group">
+<label for="username">Username</label>
+<input type="text" class="form-control" size="40" id="username" placeholder="Username" name="username">
+</div>
+
+<div class="form-group">
+<label for="givenName">Given Name</label>
+<input type="text" class="form-control" size="40" id="givenName" placeholder="Martha" name="givenName">
+</div>
+
+<div class="form-group">
+<label for="lastName">Family Name</label>
+<input type="text" class="form-control" size="40" id="lastName" placeholder="Musterfrau" name="lastName">
+</div>
+
+<div class="form-group">
+<label for="password">Password</label>
+<input type="password" class="form-control" size="40" id="password" placeholder="Please enter password" name="password">
+</div>
+
+<div class="form-group"> 
+<label for="password_confirm">Password (again):</label>
+<input type="password" class="form-control" id="password_confirm" size="40" name="password_confirm" placceholder="Please confirm password">
+</div>
  
-Password (aganin):<br>
-<input type="password" size="40" name="password_confirm"><br><br>
- 
-<input type="submit" value="GO">
+<button type="submit" class="btn btn-primary">Register</button>
+
 </form>
  
 <?php
