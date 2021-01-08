@@ -40,7 +40,7 @@ if(isset($_GET['send']) ) {
  $mailrcpt = $user['email'];
  $mailsubject = "New password for your User";
  $from = "From: Password Reset Service <resetmypw@invalid.example.com>"; //place a real address if we use this in production
- $url_passwordcode = 'https://loginpagefoo.td00.de/forgotpass.php?userid='.$user['id'].'&code='.$passwordcode; //this shouldnt be my domain in prod..
+ $url_passwordcode = 'https://loginpagefoo.td00.de/resetpass.php?userid='.$user['id'].'&code='.$passwordcode; //this shouldnt be my domain in prod..
  $text = 'Hallo '.$user['username'].',
 please use the following URL to change your password in the next 24h:
 '.$url_passwordcode.'
