@@ -20,7 +20,7 @@ $userln = $_SESSION['lastName'];
  
 echo "Profile of ".$username;
 echo "<br/>";
-echo "<table style="width:30%">";
+echo '<table style="width:30%">';
 echo "<tr>";
 echo "<td>";
 echo "User-ID";
