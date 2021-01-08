@@ -40,7 +40,7 @@ if(isset($errorMessage)) {
 E-Mail:<br>
 <input type="email" size="40" maxlength="250" name="email"><br><br>
  
-Dein Passwort:<br>
+Your password:<br>
 <input type="password" size="40" name="passwort"><br>
  
 <input type="submit" value="GO">
