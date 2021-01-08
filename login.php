@@ -45,5 +45,6 @@ Your password:<br>
  
 <input type="submit" value="GO">
 </form> 
+<a href="forgot.php">forgot password</a>
 </body>
 </html>
