@@ -49,5 +49,8 @@ if(isset($errorMessage)) {
  </div>
  <button type="submit" class="btn btn-primary">Login</button>
 </form> 
+<br />
+<br />
+<a href="register.php"><button class="btn btn-info">I need an account first. Please let me register</button></a>
 </body>
 </html>
