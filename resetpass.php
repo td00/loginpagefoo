@@ -10,7 +10,7 @@
 $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
  
 if(!isset($_GET['userid']) || !isset($_GET['code'])) {
- die("No code delivered. nothing to do here.");
+ die('<div class="alert alert-warning" role="alert">No code delivered. nothing to do here.</div>');
 }
  
 $userid = $_GET['userid'];
@@ -23,17 +23,20 @@ $user = $statement->fetch();
  
 //check if theres a code for the user delivered
 if($user === null || $user['passwordcode'] === null) {
- die("No User matching your request.");
+ die('<div class="alert alert-danger" role="alert">
+ No User matching your request.</div>');
 }
  
 if($user['passwordcode_time'] === null || strtotime($user['passwordcode_time']) < (time()-24*3600) ) {
- die("Ooops. This code isn't valid anymore.");
+ die('<div class="alert alert-danger" role="alert">
+ Ooops. This code isnt valid anymore.</div>');
 }
  
  
 
 if(sha1($code) != $user['passwordcode']) {
- die("Thats not your code. Naughty user!");
+ die('<div class="alert alert-danger" role="alert">
+ Thats not your code. Naughty user!</div>');
 }
  
 

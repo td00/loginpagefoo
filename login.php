@@ -19,7 +19,7 @@ if(isset($_GET['login'])) {
         $_SESSION['lastName'] = $user['lastName'];
         die('successfull. go to: <a href="secure.php">secure page</a><meta http-equiv="refresh" content="0; URL=secure.php">');
     } else {
-        $errorMessage = "somethings wrong (maybe wrong password or wrong user)<br>";
+        $errorMessage = "<div class="alert alert-danger" role="alert">somethings wrong (maybe wrong password or wrong user)</div><br>";
     }
     
 }

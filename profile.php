@@ -18,7 +18,7 @@ $useremail = $_SESSION['email'];
 $usergn = $_SESSION['givenName'];
 $userln = $_SESSION['lastName'];
  
-echo "Profile of ".$username;
+echo '<div class="alert alert-info" role="alert">Profile of '.$username.'</div>';
 echo "<br/>";
 echo '<table class="table table-dark table-striped" style="width:30%">';
 echo "<tr>";
