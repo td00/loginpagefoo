@@ -60,7 +60,7 @@ loginpagefoo script';
  
  mail($mailrcpt, $mailsubject, $text, $from);
  
- echo "Link send. Going back to <a href="login.php">login</a> page. <meta http-equiv="refresh" content="0; URL=login.php">"; 
+ echo 'Link send. Going back to <a href="login.php">login</a> page. <meta http-equiv="refresh" content="0; URL=login.php">'; 
  $showForm = false;
  }
  }
