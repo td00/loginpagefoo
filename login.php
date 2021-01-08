@@ -39,6 +39,9 @@ if(isset($errorMessage)) {
 }
 ?>
  <script src="ressources/js/bootstrap.min.js"></script>
+ <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+
 <form action="?login=1" method="post">
 <div class="form-group">
 <label for="username">Username</label>
@@ -55,7 +58,8 @@ if(isset($errorMessage)) {
 <a href="forgotpass.php"><button class="btn btn-warning">I forgot my password</button></a>
 <br /> <br />
 <a href="register.php"><button class="btn btn-info">I need an account first. Please let me register</button></a>
-
+</div>
+</div>
 </div>
 
 </main><!-- /.container -->
