@@ -27,7 +27,7 @@ echo "<br/>";
 echo "And your email is: ".$useremail;
 echo "<br/>";
 echo "You can logout <a href="logout.php">here</a>";
-echo "<br />";
+echo "<br/>";
 echo "<br/>";
 echo "This is the end now!";
 echo "<br />";
