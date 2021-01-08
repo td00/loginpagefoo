@@ -90,6 +90,8 @@ if(isset($_GET['register'])) {
 if($showFormular) {
 ?>
 <script src="ressources/js/bootstrap.min.js"></script>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
 <form action="?register=1" method="post">
 
 <div class="form-group">
@@ -125,7 +127,7 @@ if($showFormular) {
 <button type="submit" class="btn btn-primary">Register</button>
 
 </form>
- 
+ </div></div>
 <?php
 } 
 ?>
