@@ -20,5 +20,6 @@ echo "And your email is: ".$useremail;
 echo "<br/>";
 echo "<br/>";
 echo "This is the end now!";
+echo "<br />"
 echo "goodbye";
 ?>
