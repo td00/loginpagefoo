@@ -1,3 +1,11 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+<link rel="stylesheet" href="ressources/css/bootstrap.min.css" crossorigin="anonymous">
+   
+  <title>Forgot Password</title>    
+</head> 
+<body>
 <?php 
 $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
  
@@ -69,11 +77,13 @@ if(isset($error) && !empty($error)) {
  echo $error;
 }
 ?>
- 
+ <script src="ressources/js/bootstrap.min.js"></script>
 <form action="?send=1" method="post">
-E-Mail:<br>
-<input type="email" name="email" value="<?php echo isset($_POST['email']) ? htmlentities($_POST['email']) : ''; ?>"><br>
-<input type="submit" value="New Password">
+<div class="form-group">
+<label for="email">Email</label>
+0<input type="email" name="email" id="email" class="form-control" value="<?php echo isset($_POST['email']) ? htmlentities($_POST['email']) : ''; ?>"><br>
+</div>
+<button type="submit" class="btn btn-primary">
 </form>
  
 <?php

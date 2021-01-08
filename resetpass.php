@@ -1,3 +1,11 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+<link rel="stylesheet" href="ressources/css/bootstrap.min.css" crossorigin="anonymous">
+   
+  <title>Reset Password</title>    
+</head> 
+<body>
 <?php
 $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
  
@@ -47,14 +55,16 @@ if(isset($_GET['send'])) {
  }
 }
 ?>
- 
+  <script src="ressources/js/bootstrap.min.js"></script>
 <h1>Set new password</h1>
 <form action="?send=1&amp;userid=<?php echo htmlentities($userid); ?>&amp;code=<?php echo htmlentities($code); ?>" method="post">
-Please enter new password:<br>
-<input type="password" name="password"><br><br>
- 
-Confirm new password:<br>
-<input type="password" name="password_confirm"><br><br>
- 
-<input type="submit" value="save change">
+<div class="form-group">
+<label for="password">New Password</label>
+<input type="password" id="password" class="form-control" name="password"><br><br>
+ </div>
+ <div class=form-group>
+ <label for="password_confirm">Confirm new Password</label>
+<input type="password" id="password" class="form-control" name="password_confirm"><br><br>
+ </div>
+ <button type="submit" class="btn btn-primary">Submit new password</button>
 </form>
