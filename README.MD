@@ -52,5 +52,5 @@ Test if you were successfull with:
 ```````
 Import the empty database like this:
 `````
-# mysql -u usertable --password=password < usertable.sql
+# mysql -u usertable --password=password usertable < usertable.sql
 ```````
