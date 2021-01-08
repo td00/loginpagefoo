@@ -3,22 +3,22 @@ session_start();
 $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
  
 if(isset($_GET['login'])) {
-    $email = $_POST['email'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
     
-    $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-    $result = $statement->execute(array('email' => $email));
+    $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+    $result = $statement->execute(array('username' => $username));
     $user = $statement->fetch();
         
-    //Überprüfung des Passworts
     if ($user !== false && password_verify($password, $user['password'])) {
         $_SESSION['userid'] = $user['id'];
         $_SESSION['email'] = $user['email'];
+        $_SESSION['username'] = $user['username'];
         $_SESSION['givenName'] = $user['givenName'];
         $_SESSION['lastName'] = $user['lastName'];
         die('successfull. go to: <a href="secure.php">secure page</a>');
     } else {
-        $errorMessage = "somethings wrong (maybe wrong password or wrong email)<br>";
+        $errorMessage = "somethings wrong (maybe wrong password or wrong user)<br>";
     }
     
 }
@@ -37,8 +37,8 @@ if(isset($errorMessage)) {
 ?>
  
 <form action="?login=1" method="post">
-E-Mail:<br>
-<input type="email" size="40" maxlength="250" name="email"><br><br>
+Your Username:<br>
+<input type="text" size="40" maxlength="250" name="username"><br><br>
  
 Your password:<br>
 <input type="password" size="40" name="password"><br>
