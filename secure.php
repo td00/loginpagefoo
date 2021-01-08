@@ -7,6 +7,6 @@ if(!isset($_SESSION['userid'])) {
 $userid = $_SESSION['userid'];
  
 echo "Hi ".$userid;
-echo "<br/>"
-echo "This is secure now!"
+echo "<br/>";
+echo "This is secure now!";
 ?>
