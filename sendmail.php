@@ -21,3 +21,4 @@ $headers = 'From: '.$sender.' '. "\r\n" .
 
 mail($to, $subject, $message, $headers);
 ?> 
+<h1>Maybe there is a mail in your inbox now...</h1>
