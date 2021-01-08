@@ -51,6 +51,8 @@ if(isset($errorMessage)) {
 </form> 
 <br />
 <br />
+<a href="forgotpass.php"><button class="btn btn-warning">I forgot my password</button></a>
+<br /> <br />
 <a href="register.php"><button class="btn btn-info">I need an account first. Please let me register</button></a>
 </body>
 </html>
