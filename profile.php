@@ -57,7 +57,15 @@ echo "</tr>";
 </table>
 
 <br>
+
 <br/>
+<br>
+<a href="secure.php"><button class="btn btn-info">Back</button></a>
+<br/>
+<br>
+
+<br/>
+
 <br/>
 
 <a href="logout.php"><button class="btn btn-danger">LOGOUT</button></a>
