@@ -1,10 +1,11 @@
 CREATE TABLE `users` ( 
   `id` INT NOT NULL AUTO_INCREMENT ,
   `email` VARCHAR(255) NOT NULL ,
-  `passwort` VARCHAR(255) NOT NULL ,
-  `vorname` VARCHAR(255) NOT NULL DEFAULT '' ,
-  `nachname` VARCHAR(255) NOT NULL DEFAULT '' ,
+  `username` VARCHAR(255) NOT NULL ,
+  `password` VARCHAR(255) NOT NULL ,
+  `givenName` VARCHAR(255) NOT NULL DEFAULT '' ,
+  `lastName` VARCHAR(255) NOT NULL DEFAULT '' ,
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
-  PRIMARY KEY (`id`), UNIQUE (`email`)
+  PRIMARY KEY (`id`), UNIQUE (`email`), UNIQUE (`username`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
