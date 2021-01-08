@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Secure Page</title>
+<title>Secure Area</title>
 <link rel="stylesheet" href="ressources/css/bootstrap.min.css" crossorigin="anonymous">
 </head>
 <body>
