@@ -41,10 +41,19 @@ if(sha1($code) != $user['passwordcode']) {
 if(isset($_GET['send'])) {
  $password = $_POST['password'];
  $password_confirm = $_POST['password_confirm'];
- 
+  //regexes for passvalidation:
+    $REuppercase = preg_match('@[A-Z]@', $password);
+    $RElowercase = preg_match('@[a-z]@', $password);
+    $REnumber    = preg_match('@[0-9]@', $password);
+    $REspecialChars = preg_match('@[^\w]@', $password);
  if($password != $password_confirm) {
  echo "password or confirmed password wrong";
- } else { 
+ }
+ if(!$REuppercase || !$RElowercase || !$REnumber || !$REspecialChars || strlen($password) < 8) {
+    echo '<color="red">Password needs to be more complex.</color><br />';
+    echo '<i>Please implement at least 8 chars, upper & downer caser, one number & one special char.</i><br />';
+    $error = true;
+}  else { 
  $passwordhash = password_hash($password, PASSWORD_DEFAULT);
  $statement = $pdo->prepare("UPDATE users SET password = :passwordhash, passwordcode = NULL, passwordcode_time = NULL WHERE id = :userid");
  $result = $statement->execute(array('passwordhash' => $passwordhash, 'userid'=> $userid ));
