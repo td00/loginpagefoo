@@ -31,3 +31,26 @@ Some poc of a login / register setup with php & mysql
 
 
 ### Thanks for flying penguin stack overflow stealing! <3
+
+### Database Setup:
+
+`````
+# mysql -u root -p
+```````
+in the mysql shell do the following:
+
+``````
+CREATE DATABASE usertable;
+CREATE USER 'usertable'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, DROP, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON usertable.* TO 'usertable'@'localhost';
+FLUSH PRIVILEGES;
+exit
+``````
+Test if you were successfull with:
+`````
+# mysql -u usertable -p
+```````
+Import the empty database like this:
+`````
+# mysql -u usertable --password=password < usertable.sql
+```````
