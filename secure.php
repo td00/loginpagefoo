@@ -1,3 +1,10 @@
+<html>
+<head>
+<title>Secure Page</title>
+<link rel="stylesheet" href="ressources/css/bootstrap.min.css" crossorigin="anonymous">
+</head>
+<body>
+<script src="ressources/js/bootstrap.min.js"></script>
 <?php
 session_start();
 $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
@@ -24,3 +31,5 @@ echo "This is the end now!";
 echo "<br />";
 echo "goodbye";
 ?>
+</body>
+</html>

@@ -26,6 +26,8 @@ if(isset($_GET['login'])) {
 <!DOCTYPE html> 
 <html> 
 <head>
+<link rel="stylesheet" href="ressources/css/bootstrap.min.css" crossorigin="anonymous">
+   
   <title>Login</title>    
 </head> 
 <body>
@@ -35,7 +37,7 @@ if(isset($errorMessage)) {
     echo $errorMessage;
 }
 ?>
- 
+ <script src="ressources/js/bootstrap.min.js"></script>
 <form action="?login=1" method="post">
 Your Username:<br>
 <input type="text" size="40" maxlength="250" name="username"><br><br>
