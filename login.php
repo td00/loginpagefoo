@@ -39,13 +39,15 @@ if(isset($errorMessage)) {
 ?>
  <script src="ressources/js/bootstrap.min.js"></script>
 <form action="?login=1" method="post">
-Your Username:<br>
-<input type="text" size="40" maxlength="250" name="username"><br><br>
- 
-Your password:<br>
-<input type="password" size="40" name="password"><br>
- 
-<input type="submit" value="GO">
+<div class="form-group">
+<label for="username">Username</label>
+<input type="text" class="form-control" size="40" id="username" placeholder="Username" name="username"><br><br>
+</div>
+ <div class="form-group">
+<label for="password">Password</label>
+<input type="password" class="form-control" size="40" id="password" placeholder="Password" name="password"><br>
+ </div>
+ <button type="submit" class="btn btn-primary">Login</button>
 </form> 
 </body>
 </html>
