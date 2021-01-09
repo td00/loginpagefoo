@@ -39,6 +39,9 @@ if(isset($_GET['send']) ) {
  
  if($user === false) {
  $error = "<b>no user found</b>";
+ }
+ if($user['activated'] == "1"){
+     $error = "<b>user already activated!</b>"
  } else {
  //check if theres a code already
  $activationcode = random_string();
