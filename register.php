@@ -75,7 +75,7 @@ if(isset($_GET['register'])) {
     if(!$error) {    
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
         
-        $statement = $pdo->prepare("INSERT INTO users (email, username, givenName, lastName, password) VALUES (:email, :username, :givenName, :lastName, :password)");
+        $statement = $pdo->prepare("INSERT INTO users (email, username, givenName, activated, lastName, password) VALUES (:email, :username, :givenName, :activated, :lastName, :password)");
         $result = $statement->execute(array('email' => $email, 'username' => $username, 'givenName' => $givenName, 'lastName' => $lastName, 'password' => $password_hash));
         
         if($result) {        
@@ -108,7 +108,7 @@ if($showFormular) {
 <label for="givenName">Given Name</label>
 <input type="text" class="form-control" size="40" id="givenName" placeholder="Martha" name="givenName">
 </div>
-
+<input type="hidden" id="activated" name="activated" value="0">
 <div class="form-group">
 <label for="lastName">Family Name</label>
 <input type="text" class="form-control" size="40" id="lastName" placeholder="Musterfrau" name="lastName">
