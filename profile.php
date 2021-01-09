@@ -56,6 +56,20 @@ echo "</td>";
 echo "</tr>";
 echo "<tr>";
 echo "<td>";
+echo "Activated";
+echo "</td>";
+echo "<td>";
+if ($activated == 0) {
+    echo '<p class="text-danger">Not Activated!</p><br>';
+    echo 'Click <a href="activation.php">here</a> to activate';
+}
+if ($activated == 1) {
+    echo '<p class="text-success">Activated!</p>';
+}
+echo "</td>";
+echo "</tr>";
+echo "<tr>";
+echo "<td>";
 echo "E-Mail";
 echo "</td>";
 echo "<td>";
