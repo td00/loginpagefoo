@@ -56,7 +56,20 @@ echo "</td>";
 echo "</tr>";
 echo "<tr>";
 echo "<td>";
-echo "Activated";
+echo "E-Mail";
+echo "</td>";
+echo "<td>";
+echo $useremail;
+echo "</td>";
+echo "</tr>";
+?>
+</table>
+<br /> <br /><br />
+<table class="table table-dark table-striped" style="width:30%">
+<?php
+echo "<tr>";
+echo "<td>";
+echo "User Status:";
 echo "</td>";
 echo "<td>";
 if ($activated == 0) {
@@ -68,17 +81,8 @@ if ($activated == 1) {
 }
 echo "</td>";
 echo "</tr>";
-echo "<tr>";
-echo "<td>";
-echo "E-Mail";
-echo "</td>";
-echo "<td>";
-echo $useremail;
-echo "</td>";
-echo "</tr>";
 ?>
 </table>
-
 <br>
 
 <br/>
