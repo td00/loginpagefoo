@@ -22,7 +22,7 @@ $result = $statement->execute(array('userid' => $userid));
 $user = $statement->fetch();
  
 //check if theres a code for the user delivered
-if($user === null || $user['actuvationcode'] === null) {
+if($user === null || $user['activationcode'] === null) {
  die('<div class="alert alert-danger" role="alert">
  No User matching your request.</div>');
 }
