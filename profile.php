@@ -17,6 +17,7 @@ $username = $_SESSION['username'];
 $useremail = $_SESSION['email'];
 $usergn = $_SESSION['givenName'];
 $userln = $_SESSION['lastName'];
+$activated = $_SESSION['activated'];
  
 echo '<div class="alert alert-info" role="alert">Profile of '.$username.'</div>';
 echo "<br/>";
