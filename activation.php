@@ -3,80 +3,89 @@
 <head>
 <link rel="stylesheet" href="ressources/css/bootstrap.min.css" crossorigin="anonymous">
    
-  <title>Reset Password</title>    
+  <title>Activate User</title>    
 </head> 
 <body>
-<?php
+<?php 
 $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
  
-if(!isset($_GET['userid']) || !isset($_GET['code'])) {
- die('<div class="alert alert-warning" role="alert">No code delivered. nothing to do here.</div>');
-}
- 
-$userid = $_GET['userid'];
-$code = $_GET['code'];
- 
-
-$statement = $pdo->prepare("SELECT * FROM users WHERE id = :userid");
-$result = $statement->execute(array('userid' => $userid));
-$user = $statement->fetch();
- 
-//check if theres a code for the user delivered
-if($user === null || $user['passwordcode'] === null) {
- die('<div class="alert alert-danger" role="alert">
- No User matching your request.</div>');
-}
- 
-if($user['passwordcode_time'] === null || strtotime($user['passwordcode_time']) < (time()-24*3600) ) {
- die('<div class="alert alert-danger" role="alert">
- Ooops. This code isnt valid anymore.</div>');
+function random_string() {
+ if(function_exists('random_bytes')) {
+ $bytes = random_bytes(16);
+ $str = bin2hex($bytes); 
+ } else if(function_exists('openssl_random_pseudo_bytes')) {
+ $bytes = openssl_random_pseudo_bytes(16);
+ $str = bin2hex($bytes); 
+ } else if(function_exists('mcrypt_create_iv')) {
+ $bytes = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
+ $str = bin2hex($bytes); 
+ } else {
+//this should be a unique string. if we use this in prod we should change this.
+ $str = md5(uniqid('thisisnotreallyrandombutthisstringheresomakethislongandmaybewith12345numberskthxbye', true));
+ } 
+ return $str;
 }
  
  
-
-if(sha1($code) != $user['passwordcode']) {
- die('<div class="alert alert-danger" role="alert">
- Thats not your code. Naughty user!</div>');
-}
+$showForm = true;
  
-
+if(isset($_GET['send']) ) {
+ if(!isset($_POST['username']) || empty($_POST['username'])) {
+ $error = "<b>Enter your Username</b>";
+ } else {
+ $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+ $result = $statement->execute(array('username' => $_POST['username']));
+ $user = $statement->fetch(); 
  
-if(isset($_GET['send'])) {
- $password = $_POST['password'];
- $password_confirm = $_POST['password_confirm'];
-  //regexes for passvalidation:
-    $REuppercase = preg_match('@[A-Z]@', $password);
-    $RElowercase = preg_match('@[a-z]@', $password);
-    $REnumber    = preg_match('@[0-9]@', $password);
-    $REspecialChars = preg_match('@[^\w]@', $password);
- if($password != $password_confirm) {
- echo "password or confirmed password wrong";
+ if($user === false) {
+ $error = "<b>no user found</b>";
+ } else {
+ //check if theres a code already
+ $activationcode = random_string();
+ $statement = $pdo->prepare("UPDATE users SET activationcode = :activationcode, activationcode_time = NOW() WHERE id = :userid");
+ $result = $statement->execute(array('activationcode' => sha1($activationcode), 'userid' => $user['id']));
+ 
+ $mailrcpt = $user['email'];
+ $mailsubject = "New password for your User";
+ $from = "From: Password Reset Service <resetmypw@loginpagefoo.td00.de>"; //place a real address if we use this in production
+ $url_activationcode = 'https://loginpagefoo.td00.de/resetpass.php?userid='.$user['id'].'&code='.$activationcode; //this shouldnt be my domain in prod..
+ $text = 'Hallo '.$user['username'].',
+please use the following URL to activate your account in the next 24h:
+'.$url_activationcode.'
+ 
+If this mail comes unsolicited, please just ignore the mail.
+ 
+cheers
+loginpagefoo script';
+ 
+ mail($mailrcpt, $mailsubject, $text, $from);
+ 
+ echo 'Link send. Going back to <a href="profile.php">profile</a> page. <meta http-equiv="refresh" content="0; URL=login.php">'; 
+ $showForm = false;
  }
- if(!$REuppercase || !$RElowercase || !$REnumber || !$REspecialChars || strlen($password) < 8) {
-    echo '<color="red">Password needs to be more complex.</color><br />';
-    echo '<i>Please implement at least 8 chars, upper & downer caser, one number & one special char.</i><br />';
-    $error = true;
-}  else { 
- $passwordhash = password_hash($password, PASSWORD_DEFAULT);
- $statement = $pdo->prepare("UPDATE users SET password = :passwordhash, passwordcode = NULL, passwordcode_time = NULL WHERE id = :userid");
- $result = $statement->execute(array('passwordhash' => $passwordhash, 'userid'=> $userid ));
+ }
+}
  
- if($result) {
- die('Changed password. Going to <a href="login.php">login</a> now.<meta http-equiv="refresh" content="1; URL=login.php">');
- }
- }
+if($showForm):
+?>
+ 
+<h1>Activate user</h1>
+Please enter your username so we can send you a link to activate your account.<br><br>
+ 
+<?php
+if(isset($error) && !empty($error)) {
+ echo $error;
 }
 ?>
-  <script src="ressources/js/bootstrap.min.js"></script>
-<h1>Set new password</h1>
-<form action="?send=1&amp;userid=<?php echo htmlentities($userid); ?>&amp;code=<?php echo htmlentities($code); ?>" method="post">
+ <script src="ressources/js/bootstrap.min.js"></script>
+<form action="?send=1" method="post">
 <div class="form-group">
-<label for="password">New Password</label>
-<input type="password" id="password" class="form-control" name="password"><br><br>
- </div>
- <div class=form-group>
- <label for="password_confirm">Confirm new Password</label>
-<input type="password" id="password" class="form-control" name="password_confirm"><br><br>
- </div>
- <button type="submit" class="btn btn-primary">Submit new password</button>
+<label for="username">Username</label>
+<input type="text" name="username" id="username" class="form-control" value="<?php echo isset($_POST['username']) ? htmlentities($_POST['username']) : ''; ?>"><br>
+</div>
+<button type="submit" class="btn btn-primary">Activate me</button>
 </form>
+ 
+<?php
+endif; 
+?>
