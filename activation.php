@@ -46,8 +46,8 @@ if(isset($_GET['send']) ) {
  $result = $statement->execute(array('activationcode' => sha1($activationcode), 'userid' => $user['id']));
  
  $mailrcpt = $user['email'];
- $mailsubject = "New password for your User";
- $from = "From: Password Reset Service <resetmypw@loginpagefoo.td00.de>"; //place a real address if we use this in production
+ $mailsubject = "Activate the Account of ".$user['username'];
+ $from = "From: Account Activation Service <activatemyaccount@loginpagefoo.td00.de>"; //place a real address if we use this in production
  $url_activationcode = 'https://loginpagefoo.td00.de/resetpass.php?userid='.$user['id'].'&code='.$activationcode; //this shouldnt be my domain in prod..
  $text = 'Hallo '.$user['username'].',
 please use the following URL to activate your account in the next 24h:
