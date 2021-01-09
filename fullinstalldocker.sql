@@ -13,6 +13,7 @@ CREATE TABLE `users` (
   `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   `activationcode` VARCHAR(255) NULL ,
   `activationcode_time` TIMESTAMP NULL ,
+  `activated` BOOLEAN ,
   `passwordcode` VARCHAR(255) NULL ,
   `passwordcode_time` TIMESTAMP NULL ,
   PRIMARY KEY (`id`), UNIQUE (`email`), UNIQUE (`username`)
