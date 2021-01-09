@@ -26,15 +26,15 @@ function random_string() {
  return $str;
 }
  
- 
+$sessionuser = $_SESSION['username'];
 $showForm = true;
  
 if(isset($_GET['send']) ) {
- if(!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+ if(!isset($sessionuser) || empty($sessionuser)) {
  $error = '<span class="badge badge-pill badge-danger"><b>No Valid User in Session. Please Login Again!</b></span>';
  } else {
  $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
- $result = $statement->execute(array('username' => $_SESSION['username']));
+ $result = $statement->execute(array('username' => $sessionuser));
  $user = $statement->fetch(); 
  
  if($user === false) {
