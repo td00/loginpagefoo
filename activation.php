@@ -7,6 +7,7 @@
 </head> 
 <body>
 <?php 
+session_start();
 $pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
  
 function random_string() {
