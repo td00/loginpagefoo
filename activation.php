@@ -40,8 +40,8 @@ if(isset($_GET['send']) ) {
  if($user === false) {
     $error = '<span class="badge badge-pill badge-warning"><b>no user found</b></span>';
  }
- if($user['username'] !== $_POST['username']){
-    $error = '<span class="badge badge-pill badge-warning"><b>no user found/invalid user</b></span>';
+ if($user['username'] == ""){
+    $error = '<span class="badge badge-pill badge-warning"><b>no user found</b></span>';
  }
  if($user['activated'] == "1"){
      $error = '<span class="badge badge-pill badge-warning"><b>user already activated!</b></span>';
