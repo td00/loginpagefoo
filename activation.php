@@ -30,11 +30,11 @@ function random_string() {
 $showForm = true;
  
 if(isset($_GET['send']) ) {
- if(!isset($_POST['username']) || empty($_POST['username'])) {
- $error = '<span class="badge badge-pill badge-info"><b>Enter your Username</b></span>';
+ if(!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+ $error = '<span class="badge badge-pill badge-danger"><b>No Valid User in Session. Please Login Again!</b></span>';
  } else {
  $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
- $result = $statement->execute(array('username' => $_POST['username']));
+ $result = $statement->execute(array('username' => $_SESSION['username']));
  $user = $statement->fetch(); 
  
  if($user === false) {
@@ -76,7 +76,6 @@ if($showForm):
 ?>
  
 <h1>Activate user</h1>
-Please enter your username so we can send you a link to activate your account.<br><br>
  
 <?php
 if(isset($error) && !empty($error)) {
@@ -85,11 +84,7 @@ if(isset($error) && !empty($error)) {
 ?>
  <script src="ressources/js/bootstrap.min.js"></script>
 <form action="?send=1" method="post">
-<div class="form-group">
-<label for="username">Username</label>
-<input type="text" name="username" id="username" class="form-control" value="<?php echo isset($_POST['username']) ? htmlentities($_POST['username']) : ''; ?>"><br>
-</div>
-<button type="submit" class="btn btn-primary">Activate me</button>
+<button type="submit" class="btn btn-primary">Click to send activation notice</button>
 </form>
  
 <?php
