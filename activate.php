@@ -44,7 +44,7 @@ if(isset($_GET['send'])) {
  $result = $statement->execute(array('userid'=> $userid ));
  
  if($result) {
- die('Activated. Going to <a href="login.php">login</a> now.<meta http-equiv="refresh" content="1; URL=login.php">');
+ die('Activated. Going to <a href="secure.php">secure</a> now.<meta http-equiv="refresh" content="1; URL=update.php?page=secure.php">');
  }
 }
 ?>
