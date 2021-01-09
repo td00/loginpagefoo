@@ -31,17 +31,17 @@ $showForm = true;
  
 if(isset($_GET['send']) ) {
  if(!isset($_POST['username']) || empty($_POST['username'])) {
- $error = "<b>Enter your Username</b>";
+ $error = '<span class="badge badge-pill badge-info"><b>Enter your Username</b></span>';
  } else {
  $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
  $result = $statement->execute(array('username' => $_POST['username']));
  $user = $statement->fetch(); 
  
  if($user === false) {
- $error = "<b>no user found</b>";
+ $error = '<span class="badge badge-pill badge-warning"><b>no user found</b></span>';
  }
  if($user['activated'] == "1"){
-     $error = "<b>user already activated!</b>";
+     $error = '<span class="badge badge-pill badge-warning"><b>user already activated!</b></span>';
  } else {
  //check if theres a code already
  $activationcode = random_string();
