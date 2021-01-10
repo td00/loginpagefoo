@@ -1,4 +1,10 @@
 # Login Page POC
+[![GitHub license](https://img.shields.io/github/license/td00/loginpagefoo)](https://github.com/td00/loginpagefoo/blob/main/LICENSE)
+[![GitHub forks](https://img.shields.io/github/forks/td00/loginpagefoo)](https://github.com/td00/loginpagefoo/network)
+[![GitHub issues](https://img.shields.io/github/issues/td00/loginpagefoo)](https://github.com/td00/loginpagefoo/issues)
+
+[Docker Image](https://github.com/td00/loginpagefoo-docker) (![GitHub Workflow Status](https://img.shields.io/github/workflow/status/td00/loginpagefoo-docker/Docker))
+
 Some poc of a login / register setup with php & mysql
 
 ## Setup:
