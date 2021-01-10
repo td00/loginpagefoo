@@ -48,7 +48,9 @@ if(isset($_GET['user']) ) {
  $result = $statement->execute(array('userid' => $user['id']));
  
 
-
+ echo '<div class="alert alert-success" role="alert">Successfully took the ADMIN rights from ';
+ echo $user['username'];
+ echo '</div>';
  $showForm = false;
  }
  }
@@ -57,7 +59,7 @@ if(isset($_GET['user']) ) {
 if($showForm):
 ?>
  
-<h1>Take Admin Rights!</h1>
+<h1>Give Admin Rights!</h1>
 Please enter the username below.<br><br>
  
 <?php
@@ -68,16 +70,16 @@ if(isset($error) && !empty($error)) {
  <script src="ressources/js/bootstrap.min.js"></script>
 <form action="?user=1" method="post">
 <div class="form-group">
-<label for="email">Username</label>
-<input type="text" name="email" id="email" class="form-control" value="<?php echo isset($_POST['username']) ? htmlentities($_POST['username']) : ''; ?>"><br>
+<label for="username">Username</label>
+<input type="text" name="username" id="username" class="form-control" value="<?php echo isset($_POST['username']) ? htmlentities($_POST['username']) : ''; ?>"><br>
 </div>
-<button type="submit" class="btn btn-primary">Search User</button>
+<button type="submit" class="btn btn-primary">Take User Rights</button>
 </form>
  
 <?php
 endif; 
 ?>
-
+<?php
 echo '<br /> <br />';
 echo '<a href="adminarea.php"><button class="btn btn-info">Back</button></a>';
 ?>
