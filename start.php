@@ -29,7 +29,7 @@ $activated = $_SESSION['activated'];
         <a class="p-2 text-dark" href="https://github.com/td00/loginpagefoo">Git</a>
         <?php
       if($userid > 0){
-        echo 'Hi '.$_SESSION['username'];  
+        echo 'Hi <a href="profile.php">'.$_SESSION['username'].'</a>';  
       }else{
       echo '<a class="p-2 text-dark" href="register.php">Register</a>';
     }
