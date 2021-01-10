@@ -16,7 +16,8 @@ $_SESSION['activated'] = $user['activated'];
 $_SESSION['updated_at'] = $user['updated_at'];
 
 
-echo 'Session newly validated!';
+echo 'Session newly validated!<br />';
+echo "Going to ".$_GET['page'];
 if(isset($_GET['page'])) {
 echo '<meta http-equiv="refresh" content="0; URL='.$_GET['page'].'">';
 } if($_GET['page'] == "update.php"){
