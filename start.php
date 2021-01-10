@@ -1,6 +1,8 @@
 <?php
 session_start();
 $userid = $_SESSION['userid'];
+$isadmin = $_SESSION['isadmin']; 
+$activated = $_SESSION['activated'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -41,7 +43,10 @@ $userid = $_SESSION['userid'];
     }
       ?>
     </div>
-
+    <?php
+    if(isset($_GET['activation_req'])) {
+    echo '<div class="alert alert-danger" role="alert">Your account isnt activated yet!</div><br>';
+}?>
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">loginpagefoo POC (PHP & MySQL)</h1>
       <p class="lead">Just a crappy POC written in PHP using PHP, HTML & MySQL.</p>
@@ -91,7 +96,13 @@ $userid = $_SESSION['userid'];
         <ul class="list-unstyled mt-3 mb-4">
           <li>Show the Activated Area</li>
         </ul>
-        <a href="activatedarea.php"><button type="button" class="btn btn-lg btn-block btn-primary">Activated Area</button></a>
+        <?php
+        if ($activated == 0) {
+    echo '<a href="?activation_req=1"><button class="btn btn-primary disabled">Activated Area</button></a>';
+}
+if ($activated == 1) {
+    echo '<a href="activatedarea.php"><button class="btn btn-lg btn-block btn-primary">Activated Area</button></a>';
+}?>
       </div>
     </div>
         <?php  
@@ -144,7 +155,14 @@ $userid = $_SESSION['userid'];
       <?php
     }
       ?>
-
+      <?php
+if ($isadmin == 0) {
+    echo '<br>';
+}
+if ($isadmin == 1) {
+    echo '<a href="adminarea.php"><button class="btn btn-danger">Admin Area</button></a>';
+}
+?>
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
           <div class="col-12 col-md">
