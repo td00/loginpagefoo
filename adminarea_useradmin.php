@@ -28,46 +28,36 @@ if($_SESSION['isadmin'] == 0) {
 }
 
 echo '<div class="alert alert-danger" role="alert">heres the admin world</div>';
-?>
-<?php
-include 'db.inc.php';
 
 
-//create connection
-$connection = mysqli_connect($mysqlhost, $dbuser, $dbpass, $dbname);
+// Run the query.
+$result = $pdo->query("SELECT * FROM table LIMIT 10");
 
-//test if connection failed
-if(mysqli_connect_errno()){
-    die("connection failed: "
-        . mysqli_connect_error()
-        . " (" . mysqli_connect_errno()
-        . ")");
+// Get the result in to a more usable format.
+$query = array();
+while($query[] = mysqli_fetch_assoc($result));
+array_pop($query);
+
+// Output a dynamic table of the results with column headings.
+echo '<table border="1">';
+echo '<tr>';
+foreach($query[0] as $key => $value) {
+    echo '<td>';
+    echo $key;
+    echo '</td>';
 }
-
-//get results from database
-$result = mysqli_query($connection,"SELECT * FROM users");
-$all_property = array();  //declare an array for saving property
-
-//showing property
-echo '<table class="data-table">
-        <tr class="data-heading">';  //initialize table tag
-while ($property = mysqli_fetch_field($result)) {
-    echo '<td>' . $property->name . '</td>';  //get field name for header
-    array_push($all_property, $property->name);  //save those to array
-}
-echo '</tr>'; //end tr tag
-
-//showing all data
-while ($row = mysqli_fetch_array($result)) {
-    echo "<tr>";
-    foreach ($all_property as $item) {
-        echo '<td>' . $row[$item] . '</td>'; //get items using property value
+echo '</tr>';
+foreach($query as $row) {
+    echo '<tr>';
+    foreach($row as $column) {
+        echo '<td>';
+        echo $column;
+        echo '</td>';
     }
     echo '</tr>';
 }
-echo "</table>";
-?>
-<?php
+echo '</table>';
+
 echo '<br /> <br />';
 echo '<a href="adminarea.php"><button class="btn btn-info">Back</button></a>';
 ?>
