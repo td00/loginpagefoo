@@ -30,7 +30,7 @@ if($_SESSION['isadmin'] == 0) {
 echo '<div class="alert alert-danger" role="alert">heres the admin world</div>';
 ?>
 <?php
-include 'db.inc.php'
+include 'db.inc.php';
 
 
 //create connection
