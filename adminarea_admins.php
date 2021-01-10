@@ -14,9 +14,13 @@ if($_SESSION['isadmin'] == 0) {
 echo '<div class="alert alert-danger" role="alert">heres the admin world</div>';
 echo '<a href="adminarea_admins_give.php"><button class="btn btn-success">GIVE</button></a>';
 echo '<a href="adminarea_admins_take.php"><button class="btn btn-danger">TAKE</button></a>';
+echo "<br />";
+echo $output;
+echo "<br />";
+echo "//implement a user search here.";
 echo '<br />';
 
-$showForm = true;
+$showForm = false;
  
 if(isset($_GET['user']) ) {
  if(!isset($_POST['username']) || empty($_POST['username'])) {
@@ -29,18 +33,19 @@ if(isset($_GET['user']) ) {
  if($user === false) {
  $error = "<b>no user found</b>";
  } else {
- $showForm = false;
- echo "<h1>adminrights y/n</h1>";
+    echo $user['isadmin'];
+    $showForm = false;
+
  }
  }
 }
- 
+
 if($showForm):
 ?>
  
 <h1>Search for Admin Rights!</h1>
 Please enter the username below.<br><br>
- 
+
 <?php
 if(isset($error) && !empty($error)) {
  echo $error;
