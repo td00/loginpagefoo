@@ -39,7 +39,7 @@ if ($activated == 1) {
 if ($isadmin == 0) {
     echo '<br>';
 }
-if ($activated == 1) {
+if ($isadmin == 1) {
     echo '<a href="adminarea.php"><button class="btn btn-danger">Admin Area</button></a>';
 }
 ?>
