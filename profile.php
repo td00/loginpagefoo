@@ -87,7 +87,7 @@ echo "</tr>";
 
 <br/>
 <br>
-<a href="secure.php"><button class="btn btn-info">Back</button></a>
+<a href="start.php"><button class="btn btn-info">Back</button></a>
 <br/>
 <br>
 <!--<a href="rawdata.php"><button class="btn btn-black">Raw Data</button></a>-->

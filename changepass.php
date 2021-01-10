@@ -37,11 +37,11 @@ if(isset($_GET['changed'])) {
             $result = $statement->execute(array('passwordhash' => $passwordhash, 'userid'=> $userid ));
             
             if($result) {
-            die('Changed password. Going to <a href="secure.php">secure</a> now.<meta http-equiv="refresh" content="1; URL=secure.php">');
+            die('Changed password. Going to <a href="start.php">start</a> now.<meta http-equiv="refresh" content="1; URL=start.php">');
             }
             }
            }
-        die('<div class="alert alert-success" role="alert"> successfull. go to: <a href="secure.php">secure page</a></div> <meta http-equiv="refresh" content="0; URL=secure.php">');
+        die('<div class="alert alert-success" role="alert"> successfull. go to: <a href="start.php">start page</a></div> <meta http-equiv="refresh" content="0; URL=start.php">');
     } else {
         $errorMessage = '<div class="alert alert-danger" role="alert">somethings wrong (maybe wrong password or wrong user)</div><br>';
     }

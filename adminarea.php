@@ -19,5 +19,5 @@ echo '<a href="adminarea_sessions.php"><button class="btn btn-primary">Session A
 echo '<br /> <br />';
 echo '<a href="adminarea_admins.php"><button class="btn btn-danger">Admin Admin</button></a>';
 echo '<br /> <br />';
-echo '<a href="secure.php"><button class="btn btn-info">Back</button></a>';
+echo '<a href="start.php"><button class="btn btn-info">Back</button></a>';
 ?>
