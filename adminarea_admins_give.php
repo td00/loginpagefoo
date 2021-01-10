@@ -50,7 +50,7 @@ if(isset($_GET['user']) ) {
 
  echo '<div class="alert alert-success" role="alert">Successfully granted ';
  echo $user['username'];
- echo ' ADMIN rights.</div>'
+ echo ' ADMIN rights.</div>';
  $showForm = false;
  }
  }
