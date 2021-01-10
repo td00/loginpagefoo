@@ -172,12 +172,12 @@ if ($isadmin == 1) {
           <div class="col-6 col-md">
             <h5>Features</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Password Login</a></li>
-              <li><a class="text-muted" href="#">PHP Session</a></li>
-              <li><a class="text-muted" href="#">Logout</a></li>
-              <li><a class="text-muted" href="#">Forget password</a></li>
-              <li><a class="text-muted" href="#">Password complexibility check</a></li>
-              <li><a class="text-muted" href="#">More to come</a></li>
+              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">Password Login</a></li>
+              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">PHP Session</a></li>
+              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">Logout</a></li>
+              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">Forget password</a></li>
+              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">Password complexibility check</a></li>
+              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">More to come</a></li>
             </ul>
           </div>
       
