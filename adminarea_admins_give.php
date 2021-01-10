@@ -48,7 +48,9 @@ if(isset($_GET['user']) ) {
  $result = $statement->execute(array('userid' => $user['id']));
  
 
-
+ echo '<div class="alert alert-success" role="alert">Successfully granted ';
+ echo $user['username'];
+ echo ' ADMIN rights.</div>'
  $showForm = false;
  }
  }
