@@ -47,8 +47,8 @@ if(isset($_GET['send']) ) {
  
  $mailrcpt = $user['email'];
  $mailsubject = "New password for your User";
- $from = "From: Password Reset Service <resetmypw@loginpagefoo.td00.de>"; //place a real address if we use this in production
- $url_passwordcode = 'https://loginpagefoo.td00.de/resetpass.php?userid='.$user['id'].'&code='.$passwordcode; //this shouldnt be my domain in prod..
+ $from = "From: Password Reset Service <resetmypw@".$_SERVER['HTTP_HOST'].">"; //place a real address if we use this in production
+ $url_passwordcode = 'https://'.$_SERVER['HTTP_HOST'].'/resetpass.php?userid='.$user['id'].'&code='.$passwordcode; //this shouldnt be my domain in prod..
  $text = 'Hallo '.$user['username'].',
 please use the following URL to change your password in the next 24h:
 '.$url_passwordcode.'
@@ -57,7 +57,7 @@ If this mail comes unsolicited, please just ignore the mail.
  
 cheers
 loginpagefoo script';
- 
+ echo $url_passwordcode;
  mail($mailrcpt, $mailsubject, $text, $from);
  
  echo 'Link send. Going back to <a href="login.php">login</a> page. <meta http-equiv="refresh" content="0; URL=login.php">'; 
