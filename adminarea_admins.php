@@ -65,6 +65,7 @@ if(isset($error) && !empty($error)) {
 <?php
 endif; 
 ?>
+<?php
 echo '<br /> <br />';
 echo '<a href="adminarea.php"><button class="btn btn-info">Back</button></a>';
 ?>
