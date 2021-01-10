@@ -13,6 +13,8 @@ if(!isset($_SESSION['userid'])) {
 }
 $username = $_SESSION['username'];
 $activated = $_SESSION['activated'];
+$isadmin = $_SESSION['isadmin'];
+
 echo "Hi ".$username."!";
 if(isset($_GET['activation_req'])) {
     echo '<div class="alert alert-danger" role="alert">Your account isnt activated yet!</div><br>';
@@ -31,5 +33,16 @@ if ($activated == 1) {
 ?>
 <br><br>
 <a href="logout.php"><button class="btn btn-danger">LOGOUT</button></a>
+
+<br><br><br>
+<?php
+if ($isadmin == 0) {
+    echo '<br>';
+}
+if ($activated == 1) {
+    echo '<a href="adminarea.php"><button class="btn btn-danger">Admin Area</button></a>';
+}
+?>
+
 </body>
 </html>
