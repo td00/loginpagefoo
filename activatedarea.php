@@ -9,7 +9,7 @@
 <?php
 session_start();
 if($_SESSION['activated'] == 0) {
-    die ("Not activated yet")
+    die ("Not activated yet");
 }
-echo "heres the fun world"
+echo "heres the fun world";
 ?>
