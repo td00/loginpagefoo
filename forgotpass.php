@@ -57,7 +57,6 @@ If this mail comes unsolicited, please just ignore the mail.
  
 cheers
 loginpagefoo script';
- echo $url_passwordcode;
  mail($mailrcpt, $mailsubject, $text, $from);
  
  echo 'Link send. Going back to <a href="login.php">login</a> page. <meta http-equiv="refresh" content="0; URL=login.php">'; 

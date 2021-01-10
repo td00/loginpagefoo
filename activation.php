@@ -64,7 +64,6 @@ If this mail comes unsolicited, please just ignore the mail.
  
 cheers
 loginpagefoo script';
- echo $url_activationcode;
  mail($mailrcpt, $mailsubject, $text, $from);
  
  echo 'Link send. Going back to <a href="profile.php">profile</a> page. <meta http-equiv="refresh" content="0; URL=profile.php">'; 
