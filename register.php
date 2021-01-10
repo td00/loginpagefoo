@@ -75,7 +75,7 @@ if(isset($_GET['register'])) {
     if(!$error) {    
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
         
-        $statement = $pdo->prepare("INSERT INTO users (email, username, givenName, activated, lastName, password) VALUES (:email, :username, :givenName, '0', :lastName, :password)");
+        $statement = $pdo->prepare("INSERT INTO users (email, username, givenName, activated, isadmin, lastName, password) VALUES (:email, :username, :givenName, '0', '0', :lastName, :password)");
         $result = $statement->execute(array('email' => $email, 'username' => $username, 'givenName' => $givenName, 'lastName' => $lastName, 'password' => $password_hash));
         
         if($result) {        

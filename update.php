@@ -14,6 +14,7 @@ $_SESSION['givenName'] = $user['givenName'];
 $_SESSION['lastName'] = $user['lastName'];
 $_SESSION['activated'] = $user['activated'];
 $_SESSION['updated_at'] = $user['updated_at'];
+$_SESSION['isadmin'] = $user['isadmin'];
 
 
 echo 'Session newly validated!<br />';

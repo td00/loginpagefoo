@@ -11,4 +11,9 @@ echo "<br />";
 echo $_SESSION['lastName'];
 echo "<br />";
 echo $_SESSION['activated'];
+echo "<br />";
+echo $_SESSION['updated_at'];
+echo "<br />";
+echo $_SESSION['isadmin'];
+
 ?>
