@@ -1,6 +1,7 @@
 <?php
 session_start();
-$pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
+//$pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
+include 'db.inc.php';
 $username = $_SESSION['username'];
 
 $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
