@@ -20,6 +20,7 @@ if(isset($_GET['login'])) {
         $_SESSION['activated'] = $user['activated'];
         $_SESSION['updated_at'] = $user['updated_at'];
         $_SESSION['isadmin'] = $user['isadmin'];
+        $_SESSION['profilepicture'] = $user['profilepicture'];
         die('<div class="alert alert-success" role="alert"> successfull. go to: <a href="start.php">start page</a></div> <meta http-equiv="refresh" content="0; URL=start.php">');
     } else {
         $errorMessage = '<div class="alert alert-danger" role="alert">somethings wrong (maybe wrong password or wrong user)</div><br>';

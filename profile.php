@@ -1,11 +1,4 @@
 
-<html>
-<head>
-<title>Profile Page</title>
-<link rel="stylesheet" href="ressources/css/bootstrap.min.css" crossorigin="anonymous">
-</head>
-<body>
-<script src="ressources/js/bootstrap.min.js"></script>
 <?php
 session_start();
 if(!isset($_SESSION['userid'])) {
@@ -18,6 +11,28 @@ $useremail = $_SESSION['email'];
 $usergn = $_SESSION['givenName'];
 $userln = $_SESSION['lastName'];
 $activated = $_SESSION['activated'];
+$isadmin = $_SESSION['isadmin'];
+$profilepicture = "https://web.td00.de/woddle.gif";
+?>
+<html>
+<head>
+<title>Profile Page</title>
+<link rel="stylesheet" href="ressources/css/bootstrap.min.css" crossorigin="anonymous">
+</head>
+<body>
+<script src="ressources/js/bootstrap.min.js"></script>
+<div class="float-right">
+    <br />
+    <br />
+    <?php
+    echo '<img src="'.$profilepicture.'" height=90 width=90 />';
+    
+    ?>
+</div>
+
+
+<?php
+
  
 echo '<div class="alert alert-info" role="alert">Profile of '.$username.'</div>';
 echo "<br/>";
@@ -81,10 +96,23 @@ if ($activated == 1) {
 }
 echo "</td>";
 echo "</tr>";
+echo "<tr>";
+echo "<td>";
+echo "User Level:";
+echo "</td>";
+echo "<td>";
+if ($isadmin == 0) {
+    echo '<p class="text-success">User</p><br>';
+}
+if ($isadmin == 1) {
+    echo '<p class="text-danger">Admin</p>';
+}
+echo "</td>";
+echo "</tr>";
 ?>
+
 </table>
 <br>
-
 <br/>
 <br>
 <a href="start.php"><button class="btn btn-info">Back</button></a>

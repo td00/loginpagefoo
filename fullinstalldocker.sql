@@ -17,5 +17,6 @@ CREATE TABLE `users` (
   `activated` VARCHAR(1) NOT NULL ,
   `passwordcode` VARCHAR(255) NULL ,
   `passwordcode_time` TIMESTAMP NULL ,
+  `profilepicture` VARCHAR(255) NULL DEFAULT 'https://web.td00.de/woddle.gif' ,
   PRIMARY KEY (`id`), UNIQUE (`email`), UNIQUE (`username`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
