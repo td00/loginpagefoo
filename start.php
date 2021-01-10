@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$userid = $_SESSION['userid'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,9 +25,21 @@ session_start();
       <nav class="my-2 my-md-0 mr-md-3">
 
         <a class="p-2 text-dark" href="https://github.com/td00/loginpagefoo">Git</a>
-        <a class="p-2 text-dark" href="register.php">Register</a>
+        <?php
+      if($userid > 0){
+        echo 'Hi '.$_SESSION['username'];  
+      }else{
+      echo '<a class="p-2 text-dark" href="register.php">Register</a>';
+    }
+      ?>
       </nav>
-      <a class="btn btn-outline-primary" href="login.php">Sign In</a>
+      <?php
+      if($userid > 0){
+        echo '<a class="btn btn-outline-primary" href="logout.php">Sign Out</a>';  
+      }else{
+      echo '<a class="btn btn-outline-primary" href="login.php">Sign In</a>';
+    }
+      ?>
     </div>
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -37,17 +49,54 @@ session_start();
 
     <div class="container">
       <div class="card-deck mb-3 text-center">
+      <?php
+      if($userid > 0){
+        ?>
         <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Register</h4>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>If you don't have a user already.</li>
-            </ul>
-            <a href="register.php"><button type="button" class="btn btn-lg btn-block btn-primary">Sign up for free</button></a>
-          </div>
-        </div>
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Profile</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Your Profile</li>
+        </ul>
+        <a href="profile.php"><button type="button" class="btn btn-lg btn-block btn-primary">Profile</button></a>
+      </div>
+    </div>
+        <?php  
+      }else{
+      ?>
+      <div class="card mb-4 box-shadow">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Register</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>If you don't have a user already.</li>
+        </ul>
+        <a href="register.php"><button type="button" class="btn btn-lg btn-block btn-primary">Sign up for free</button></a>
+      </div>
+    </div>
+      <?php
+    }
+      ?>
+        <?php
+      if($userid > 0){
+        ?>
+        <div class="card mb-4 box-shadow">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Already activated?</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Show the Activated Area</li>
+        </ul>
+        <a href="activatedarea.php"><button type="button" class="btn btn-lg btn-block btn-primary">Activated Area</button></a>
+      </div>
+    </div>
+        <?php  
+      }else{
+      ?>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
             <h4 class="my-0 font-weight-normal">Login</h4>
@@ -59,6 +108,27 @@ session_start();
             <a href="login.php"><button type="button" class="btn btn-lg btn-block btn-primary">Login</button></a>
           </div>
         </div>
+      <?php
+    }
+      ?>
+       <?php
+      if($userid > 0){
+        ?>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Reset Password</h4>
+          </div>
+          <div class="card-body">
+              <ul class="list-unstyled mt-3 mb-4">
+              <li>The only way to change your password right now.. :/<br /> Needs a valid Mail Address.</li>
+            </ul>
+            <a href="forgotpass.php"<button type="button" class="btn btn-lg btn-block btn-outline-primary">Forgot (Change) Password</button></a>
+          </div>
+        </div>
+      </div>
+        <?php  
+      }else{
+      ?>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
             <h4 class="my-0 font-weight-normal">Reset Password</h4>
@@ -71,7 +141,10 @@ session_start();
           </div>
         </div>
       </div>
-      <h1 class="display-4">This page is using cookies for the Session ID and information. If you continue to use the site, you'll accept this.</h1>
+      <?php
+    }
+      ?>
+
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
           <div class="col-12 col-md">
