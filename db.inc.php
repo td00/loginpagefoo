@@ -7,4 +7,3 @@ $pdo = new PDO('mysql:host='.$mysqlhost.';dbname='.$dbname.'', $dbuser , $dbpass
 
 ?>
 
-<h1>NOPE</h1>
