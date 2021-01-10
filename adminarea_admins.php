@@ -30,7 +30,7 @@ if(isset($_GET['user']) ) {
  $error = "<b>no user found</b>";
  } else {
  $showForm = false;
- echo "adminrights y/n";
+ echo "<h1>adminrights y/n</h1>";
  }
  }
 }
