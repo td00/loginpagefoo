@@ -7,7 +7,7 @@
 </head> 
 <body>
 <?php
-$pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
+include 'db.inc.php';
  
 if(!isset($_GET['userid']) || !isset($_GET['code'])) {
  die('<div class="alert alert-warning" role="alert">No code delivered. nothing to do here.</div>');

@@ -1,7 +1,7 @@
 
 <?php 
 session_start();
-$pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
+include 'db.inc.php';
  
 if(isset($_GET['login'])) {
     $username = $_POST['username'];

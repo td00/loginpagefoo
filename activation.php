@@ -8,7 +8,7 @@
 <body>
 <?php 
 session_start();
-$pdo = new PDO('mysql:host=localhost;dbname=usertable', 'usertable', 'password');
+include 'db.inc.php';
  
 function random_string() {
  if(function_exists('random_bytes')) {
