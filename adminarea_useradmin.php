@@ -28,10 +28,10 @@ if($_SESSION['isadmin'] == 0) {
 }
 
 echo '<div class="alert alert-danger" role="alert">heres the admin world</div>';
-
+$conn = new mysqli($mysqlhost, $dbuser, $dbpass, $dbname);
 
 // Run the query.
-$result = $pdo->query("SELECT * FROM table LIMIT 10");
+$result = $conn->query("SELECT * FROM users; LIMIT 10");
 
 // Get the result in to a more usable format.
 $query = array();
