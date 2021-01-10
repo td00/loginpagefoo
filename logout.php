@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Logout</title>
-<meta http-equiv="refresh" content="3; URL=start.php">
+<meta http-equiv="refresh" content="0; URL=start.php">
 </head>
 <body>
 <?php
