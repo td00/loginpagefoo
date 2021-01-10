@@ -13,3 +13,20 @@ if($_SESSION['activated'] == 0) {
 }
 echo "heres the fun world";
 ?>
+<br /> <br />
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+<?php
+echo "Hi ".$_SESSION['username']."!";
+if(isset($_GET['notimplemented'])) {
+    echo '<div class="alert alert-danger" role="alert">Feature not yet implemented!</div>';
+}
+?>
+<br /><br />
+<a href="changeprofilepicture.php"><button class="btn btn-primary">Change Profile Picture</button>
+<br /><br />
+<a href="?notimplemented=1"><button class="btn btn-primary disabled">Change Description</button></a>
+<br /> <br /><br />
+<a href="start.php"><button class="btn btn-info">Back</button></a>
+</div>
+</div>

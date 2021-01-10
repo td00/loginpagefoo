@@ -12,7 +12,7 @@ $usergn = $_SESSION['givenName'];
 $userln = $_SESSION['lastName'];
 $activated = $_SESSION['activated'];
 $isadmin = $_SESSION['isadmin'];
-$profilepicture = "https://web.td00.de/woddle.gif";
+$profilepicture = $_SESSION['profilepicture'];
 ?>
 <html>
 <head>
