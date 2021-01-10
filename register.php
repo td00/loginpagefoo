@@ -108,7 +108,6 @@ if($showFormular) {
 <label for="givenName">Given Name</label>
 <input type="text" class="form-control" size="40" id="givenName" placeholder="Martha" name="givenName">
 </div>
-<input type="hidden" id="activated" name="activated" value="0">
 <div class="form-group">
 <label for="lastName">Family Name</label>
 <input type="text" class="form-control" size="40" id="lastName" placeholder="Musterfrau" name="lastName">
