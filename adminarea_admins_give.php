@@ -68,10 +68,10 @@ if(isset($error) && !empty($error)) {
  <script src="ressources/js/bootstrap.min.js"></script>
 <form action="?user=1" method="post">
 <div class="form-group">
-<label for="email">Username</label>
-<input type="text" name="email" id="email" class="form-control" value="<?php echo isset($_POST['username']) ? htmlentities($_POST['username']) : ''; ?>"><br>
+<label for="username">Username</label>
+<input type="text" name="username" id="username" class="form-control" value="<?php echo isset($_POST['username']) ? htmlentities($_POST['username']) : ''; ?>"><br>
 </div>
-<button type="submit" class="btn btn-primary">Search User</button>
+<button type="submit" class="btn btn-primary">Grant User Rights</button>
 </form>
  
 <?php
