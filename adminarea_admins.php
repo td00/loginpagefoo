@@ -30,14 +30,7 @@ if(isset($_GET['user']) ) {
  $error = "<b>no user found</b>";
  } else {
  $showForm = false;
- echo 'The User '.$user['username'].' with the ID '.$user['id'].' has:';
- if($user['isadmin'] == "0"){
-     echo "<br>no admin rights";
- } if($user['isadmin'] == "1"){
-     echo "<br> ADMIN RIGHTS!";
- } else {
-     echo "<br><i>A faulty user.</i>";
- }
+ echo "adminrights y/n";
  }
  }
 }
