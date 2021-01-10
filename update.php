@@ -17,5 +17,9 @@ $_SESSION['updated_at'] = $user['updated_at'];
 
 
 echo 'Session newly validated!';
+if(isset($_GET['page'])) {
 echo '<meta http-equiv="refresh" content="0; URL='.$_GET['page'].'">';
+} else {
+    die();
+}
 ?>
