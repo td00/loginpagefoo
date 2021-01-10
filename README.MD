@@ -24,11 +24,13 @@ Some poc of a login / register setup with php & mysql
 - [x] Menu with different options for logged in users on the /secure.php page
 - [x] Reset password
 - [x] Profile page (/profile.php) 
+- [x] User activation
   
 ### Need implementation:
-- [ ] Change password
-- [ ] Change email
-- [ ] Change Names
+- [ ] Change password (#2) (currently only via forgot password)
+- [ ] Change email (#6)
+- [ ] Change Names (#4)
+- [ ] Page only accessible for users that are validated (#16)
 
 
 
