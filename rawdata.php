@@ -1,4 +1,5 @@
 <?php
+//this just prints Session data line for line. Its just a quick page to check if everythings in place
 session_start();
 echo $_SESSION['userid'];
 echo "<br />";
