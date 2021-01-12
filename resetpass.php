@@ -9,6 +9,12 @@
 <?php
 include 'db.inc.php';
  
+/*
+more or less the same as activate.php
+
+but some minor differences, find the documentation over there
+
+*/
 if(!isset($_GET['userid']) || !isset($_GET['code'])) {
  die('<div class="alert alert-warning" role="alert">No code delivered. nothing to do here.</div>');
 }
@@ -43,7 +49,7 @@ if(sha1($code) != $user['passwordcode']) {
  
 if(isset($_GET['send'])) {
  $password = $_POST['password'];
- $password_confirm = $_POST['password_confirm'];
+ $password_confirm = $_POST['password_confirm']; //we need to do the whole "is your password secure enough" thingy again here:
   //regexes for passvalidation:
     $REuppercase = preg_match('@[A-Z]@', $password);
     $RElowercase = preg_match('@[a-z]@', $password);
@@ -60,7 +66,7 @@ if(isset($_GET['send'])) {
  $passwordhash = password_hash($password, PASSWORD_DEFAULT);
  $statement = $pdo->prepare("UPDATE users SET password = :passwordhash, passwordcode = NULL, passwordcode_time = NULL WHERE id = :userid");
  $result = $statement->execute(array('passwordhash' => $passwordhash, 'userid'=> $userid ));
- 
+ //done. the rest is the same
  if($result) {
  die('Changed password. Going to <a href="login.php">login</a> now.<meta http-equiv="refresh" content="1; URL=login.php">');
  }

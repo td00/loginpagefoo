@@ -7,6 +7,11 @@
 </head> 
 <body>
 <?php 
+/*
+this is basically the same as "activaion.php"
+
+some differences will be documented, the rest not.
+*/
 include 'db.inc.php';
  
 function random_string() {
@@ -30,7 +35,7 @@ function random_string() {
 $showForm = true;
  
 if(isset($_GET['send']) ) {
- if(!isset($_POST['email']) || empty($_POST['email'])) {
+ if(!isset($_POST['email']) || empty($_POST['email'])) { //here we wanna know more about the user, cause we cant get those infos from the session
  $error = "<b>Enter your email address</b>";
  } else {
  $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
@@ -47,8 +52,8 @@ if(isset($_GET['send']) ) {
  
  $mailrcpt = $user['email'];
  $mailsubject = "New password for your User";
- $from = "From: Password Reset Service <resetmypw@".$_SERVER['HTTP_HOST'].">"; //place a real address if we use this in production
- $url_passwordcode = 'https://'.$_SERVER['HTTP_HOST'].'/resetpass.php?userid='.$user['id'].'&code='.$passwordcode; //this shouldnt be my domain in prod..
+ $from = "From: Password Reset Service <resetmypw@".$_SERVER['HTTP_HOST'].">"; 
+ $url_passwordcode = 'https://'.$_SERVER['HTTP_HOST'].'/resetpass.php?userid='.$user['id'].'&code='.$passwordcode; 
  $text = 'Hallo '.$user['username'].',
 please use the following URL to change your password in the next 24h:
 '.$url_passwordcode.'
