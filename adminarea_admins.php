@@ -17,7 +17,7 @@ echo '<a href="adminarea_admins_take.php"><button class="btn btn-danger">TAKE</b
 echo "<br />";
 echo $output;
 echo "<br />";
-echo "//implement a user search here.";
+echo "//implement a user search here."; //yeah! Do what the comment says!
 echo '<br />';
 
 $showForm = false;

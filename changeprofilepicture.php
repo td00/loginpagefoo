@@ -16,7 +16,7 @@ echo "heres the fun world";
 ?>
 <?php
 
-//regex to parse file extensions here:
+//TODO: regex to parse file extensions here:
 
 //function to insert url into table here:
 if(isset($_GET['new'])) {
