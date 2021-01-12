@@ -1,8 +1,10 @@
 <?php
-session_start();
+session_start(); //get a session started.
+//here we dont need a db connection, just some data from the session
 $userid = $_SESSION['userid'];
 $isadmin = $_SESSION['isadmin']; 
 $activated = $_SESSION['activated'];
+//now lets build the website (its just a bootstrap example page)
 ?>
 <!doctype html>
 <html lang="en">
@@ -28,23 +30,23 @@ $activated = $_SESSION['activated'];
 
         <a class="p-2 text-dark" href="https://github.com/td00/loginpagefoo">Git</a>
         <?php
-      if($userid > 0){
+      if($userid > 0){ //if the user is logged in (has a userid above 0) then print this:
         echo 'Hi <a href="profile.php">'.$_SESSION['username'].'</a>';  
-      }else{
+      }else{ //if there isn't a user session print a register button instead
       echo '<a class="p-2 text-dark" href="register.php">Register</a>';
     }
       ?>
       </nav>
       <?php
-      if($userid > 0){
+      if($userid > 0){ //if the user is logged in (has a userid above 0) print a logout button
         echo '<a class="btn btn-outline-primary" href="logout.php">Sign Out</a>';  
-      }else{
+      }else{ //if there isn't a user session print a login button
       echo '<a class="btn btn-outline-primary" href="login.php">Sign In</a>';
     }
       ?>
     </div>
     <?php
-    if(isset($_GET['activation_req'])) {
+    if(isset($_GET['activation_req'])) { //looks for "?activation_req=1" in the url and prints the warning below
     echo '<div class="alert alert-danger" role="alert">Your account isnt activated yet!</div><br>';
 }?>
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -55,7 +57,7 @@ $activated = $_SESSION['activated'];
     <div class="container">
       <div class="card-deck mb-3 text-center">
       <?php
-      if($userid > 0){
+      if($userid > 0){ // you get the drift, if the user is logged in print this
         ?>
         <div class="card mb-4 box-shadow">
       <div class="card-header">
@@ -69,7 +71,7 @@ $activated = $_SESSION['activated'];
       </div>
     </div>
         <?php  
-      }else{
+      }else{ //if not print this
       ?>
       <div class="card mb-4 box-shadow">
       <div class="card-header">
@@ -86,7 +88,7 @@ $activated = $_SESSION['activated'];
     }
       ?>
         <?php
-      if($userid > 0){
+      if($userid > 0){ //same
         ?>
         <div class="card mb-4 box-shadow">
       <div class="card-header">
@@ -97,16 +99,16 @@ $activated = $_SESSION['activated'];
           <li>Show the Activated Area</li>
         </ul>
         <?php
-        if ($activated == 0) {
+        if ($activated == 0) { //check if the user is activated. if not, disable the button.
     echo '<a href="?activation_req=1"><button class="btn btn-primary disabled">Activated Area</button></a>';
 }
-if ($activated == 1) {
+if ($activated == 1) { //if enabled, than activate the button & give it a real function.
     echo '<a href="activatedarea.php"><button class="btn btn-lg btn-block btn-primary">Activated Area</button></a>';
 }?>
       </div>
     </div>
         <?php  
-      }else{
+      }else{ //else print a login field
       ?>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
@@ -123,7 +125,7 @@ if ($activated == 1) {
     }
       ?>
        <?php
-      if($userid > 0){
+      if($userid > 0){//yeah, you guessed. same as above
         ?>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
@@ -138,7 +140,7 @@ if ($activated == 1) {
         </div>
       </div>
         <?php  
-      }else{
+      }else{ //...
       ?>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
@@ -156,12 +158,13 @@ if ($activated == 1) {
     }
       ?>
       <?php
-if ($isadmin == 0) {
+if ($isadmin == 0) { //checks if admin privileges are granted. if not, just print a linebreak
     echo '<br>';
 }
-if ($isadmin == 1) {
+if ($isadmin == 1) { //if admin rights are granted, print a admin area button
     echo '<a href="adminarea.php"><button class="btn btn-danger">Admin Area</button></a>';
 }
+//footer and stuff 
 ?>
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
