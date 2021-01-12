@@ -6,6 +6,7 @@
 </head>
 <body>
 <?php
+//just start a session and destroy it. afterwards go back to the start page (thats what the http-equiv refresh does)
 session_start();
 session_destroy();
  
