@@ -2,7 +2,7 @@
 <?php
 session_start(); //start a session
 if(!isset($_SESSION['userid'])) { //if there isnt a session print a please login page and go to login page
-    die('<div class="alert alert-primary" role="alert">Please <a href="login.php">login</a></div><meta http-equiv="refresh" content="2; URL=login.php">');
+    die('<div class="alert alert-primary" role="alert">Please <a href="login.php">login</a></div><meta http-equiv="refresh" content="1; URL=login.php">');
 }
  //for easier use we shove some of the session array into variables.
 $userid = $_SESSION['userid'];
@@ -12,7 +12,6 @@ $usergn = $_SESSION['givenName'];
 $userln = $_SESSION['lastName'];
 $activated = $_SESSION['activated'];
 $isadmin = $_SESSION['isadmin'];
-$profilepicture = $_SESSION['profilepicture'];
 
 //lets build a page:
 ?>
@@ -26,10 +25,6 @@ $profilepicture = $_SESSION['profilepicture'];
 <div class="float-right">
     <br />
     <br />
-    <?php
-    echo '<img src="'.$profilepicture.'" height=90 width=90 />';
-    
-    ?>
 </div>
 
 

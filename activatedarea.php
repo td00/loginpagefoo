@@ -24,9 +24,9 @@ if(isset($_GET['notimplemented'])) { //if "?notimplemented=1" is received, print
 //some html links to other pages
 ?>
 <br /><br />
-<a href="changeprofilepicture.php"><button class="btn btn-primary">Change Profile Picture</button>
+<a href="?notimplemented=1"><button class="btn btn-primary">Some Feature</button>
 <br /><br />
-<a href="?notimplemented=1"><button class="btn btn-primary disabled">Change Description</button></a>
+<a href="?notimplemented=1"><button class="btn btn-primary disabled">Some other Feature</button></a>
 <br /> <br /><br />
 <a href="start.php"><button class="btn btn-info">Back</button></a>
 </div>

@@ -64,10 +64,15 @@ If this mail comes unsolicited, please just ignore the mail.
  
 cheers
 loginpagefoo script';
- mail($mailrcpt, $mailsubject, $text, $from); //sending the mail with the build-in mail function.
+echo 'Activation Link: <a href="'.$url_activationcode.'">'.$url_activationcode.'</a>';
+/* 
+this would be the prod implementation
+instead we just print the link and never ever use this in prod!
+mail($mailrcpt, $mailsubject, $text, $from); //sending the mail with the build-in mail function.
  
  echo 'Link send. Going back to <a href="profile.php">profile</a> page. <meta http-equiv="refresh" content="0; URL=profile.php">'; 
  //afterwards going back to profile, and dont render the form again.
+ */
  $showForm = false;
  }
  }

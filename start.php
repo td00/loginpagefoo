@@ -25,10 +25,10 @@ $activated = $_SESSION['activated'];
   <body>
 
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Crappy Login POC</h5>
+      <h5 class="my-0 mr-md-auto font-weight-normal">Login POC</h5>
       <nav class="my-2 my-md-0 mr-md-3">
 
-        <a class="p-2 text-dark" href="https://github.com/td00/loginpagefoo">Git</a>
+
         <?php
       if($userid > 0){ //if the user is logged in (has a userid above 0) then print this:
         echo 'Hi <a href="profile.php">'.$_SESSION['username'].'</a>';  
@@ -175,22 +175,19 @@ if ($isadmin == 1) { //if admin rights are granted, print a admin area button
           <div class="col-6 col-md">
             <h5>Features</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">Password Login</a></li>
-              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">PHP Session</a></li>
-              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">Logout</a></li>
-              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">Forget password</a></li>
-              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">Password complexibility check</a></li>
-              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo/blob/main/FEATURES.MD#password-login">More to come</a></li>
+              <li><a class="text-muted" href="">Password Login</a></li>
+              <li><a class="text-muted" href="">User activation</a></li>
+              <li><a class="text-muted" href="">Logout</a></li>
+              <li><a class="text-muted" href="">Forget password</a></li>
+              <li><a class="text-muted" href="">Password complexibility check</a></li>
+              <li><a class="text-muted" href="">More to come</a></li>
             </ul>
           </div>
       
           <div class="col-6 col-md">
             <h5>About</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="https://thiesmueller.de">Me</a></li>
-              <li><a class="text-muted" href="https://github.com/td00/loginpagefoo">Git</a></li>
-              <li><a class="text-muted" href="https://thiesmueller.de/dsgvo/datenschmutz.html">Privacy</a></li>
-              <li><a class="text-muted" href="https://thiesmueller.de/impress/">Imprint</a></li>
+              <li>This is just a small POC</li>
             </ul>
           </div>
         </div>

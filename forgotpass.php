@@ -62,9 +62,11 @@ If this mail comes unsolicited, please just ignore the mail.
  
 cheers
 loginpagefoo script';
- mail($mailrcpt, $mailsubject, $text, $from);
+ /*mail($mailrcpt, $mailsubject, $text, $from);
  
  echo 'Link send. Going back to <a href="login.php">login</a> page. <meta http-equiv="refresh" content="0; URL=login.php">'; 
+ */
+echo 'Password Reset Link: <a href="'.$url_passwordcode.'">'.$url_passwordcode.'</a>';
  $showForm = false;
  }
  }
